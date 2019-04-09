@@ -1,27 +1,20 @@
 class Message:
-    def __init__(self, with_ttl):
-        self.__with_ttl = with_ttl
-        self.__ttl = -1
+    def __init__(self):
+        self.__time = 0
+        self.id = 0
+        self.sender = -1
+        self.receiver = -1
 
     @property
-    def ttl(self):
-        return self.__ttl
+    def time(self):
+        return self.__time
 
-    @ttl.setter
-    def ttl(self, ttl):
-        self.__ttl = ttl
+    @time.setter
+    def time(self, time):
+        self.__time = time
 
-    @property
-    def with_ttl(self):
-        return self.__with_ttl
+    def inc_time(self):
+        self.__time += 1
 
-    @with_ttl.setter
-    def with_ttl(self, with_ttl):
-        self.__with_ttl = with_ttl
-
-    def inc_ttl(self):
-        self.__ttl += 1
-
-    def dec_ttl(self):
-        self.__ttl -= 1
-
+    def dec_time(self):
+        self.__time -= 1
